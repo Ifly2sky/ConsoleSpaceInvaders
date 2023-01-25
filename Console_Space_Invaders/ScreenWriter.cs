@@ -9,6 +9,11 @@ namespace Console_Space_Invaders
     public class ScreenWriter
     {
         int[,] map = new int[12, 40];
+
+        public void DrawScreen()
+        {
+
+        }
         public void UpdateScreen()
         {
 

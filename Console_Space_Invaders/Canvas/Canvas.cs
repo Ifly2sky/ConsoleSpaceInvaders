@@ -14,7 +14,7 @@ namespace Console_Space_Invaders
             this.fileLocation = fileLocation;
         }
 
-        public void LoadMap(string file)
+        public void LoadCanvas(string file)
         {
             string map = File.ReadAllText(fileLocation + file);
             Console.Write(map);

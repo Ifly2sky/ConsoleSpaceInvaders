@@ -11,7 +11,7 @@ namespace Console_Space_Invaders.Entities
         public Enemy()
         {
             Id = 2;
-            image = "";
+            image = "¤";
         }
 
     }
