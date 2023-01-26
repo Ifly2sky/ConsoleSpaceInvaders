@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Console_Space_Invaders
 {
-    public class ScreenWriter
+    internal class ScreenWriter
     {
-        int[,] map = new int[12, 40];
+        int[,] map = new int[11, 39];
 
-        public void DrawScreen()
+        internal void SetEntities(Canvas canvas)
         {
 
         }
-        public void UpdateScreen()
+        internal void UpdateScreen()
         {
-
+            
         }
     }
 }

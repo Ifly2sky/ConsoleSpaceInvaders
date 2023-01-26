@@ -10,11 +10,11 @@ namespace Console_Space_Invaders.Entities
 {
     public abstract class Entity
     {
-        public int Id;
+        public int id;
         public string image;
 
         public Vector2 position;
-        public int speed;
+        public float speed;
         public int health;
         public Entity() { }
     }
