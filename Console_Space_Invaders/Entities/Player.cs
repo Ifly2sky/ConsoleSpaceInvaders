@@ -13,12 +13,21 @@ namespace Console_Space_Invaders.Entities
         public Player()
         {
             id = 1;
-            image = "▄█▄ ‾";
+            image = "█▄▄‾".ToCharArray();
+            health= 3;
+            speed= 1;
+            position = new(17, 9);
         }
-        public Player(Vector2 startPosition, float speed, int health) 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="startPosition"></param>
+        /// <param name="speed"></param>
+        /// <param name="health"> image ordered as (center, left, right, down, up, topleft, topright, bottomleft, bottomright)</param>
+        public Player(Vector2 startPosition, float speed, int health, string image) 
         {
             id = 1;
-            image = "▄█▄ ‾";
+            this.image = image.ToCharArray();
             this.health = health;
             this.speed = speed;
             position = startPosition;

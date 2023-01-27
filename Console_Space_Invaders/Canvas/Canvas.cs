@@ -13,7 +13,7 @@ namespace Console_Space_Invaders
         /// <summary>
         /// mapData is a jagged array
         /// </summary>
-        public char[][] mapData = new char[13][];
+        public char[][] mapData = new char[12][];
         internal Canvas(string fileLocation)
         {
             this.fileLocation = fileLocation;
@@ -22,11 +22,13 @@ namespace Console_Space_Invaders
         public void LoadCanvas(string file)
         {
             string[] map = File.ReadAllLines(fileLocation + file);
+            mapData = new char[map.Length][];
             int row = 0;
             foreach(string line in map)
             {
                 mapData[row] = line.ToCharArray();
                 row++;
+                Console.WriteLine(line);
             }
         }
     }

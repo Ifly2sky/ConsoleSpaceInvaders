@@ -18,9 +18,8 @@ namespace Console_Space_Invaders
             Canvas canvas = new(@"C:\Users\gr275809\source\repos\C# Tehtävät\muut\Console_Space_Invaders\Console_Space_Invaders\Canvas\");
             canvas.LoadCanvas("map.txt");
             ScreenWriter screenWriter = new();
-            screenWriter.SetEntities(canvas);
-
             Player player = new Player();
+            screenWriter.SetEntities(player);
         }
         public static void Update()
         {

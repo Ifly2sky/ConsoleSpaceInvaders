@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Console_Space_Invaders.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,9 +11,9 @@ namespace Console_Space_Invaders
     {
         int[,] map = new int[11, 39];
 
-        internal void SetEntities(Canvas canvas)
+        internal void SetEntities(Player player)
         {
-
+            player.Draw();
         }
         internal void UpdateScreen()
         {
