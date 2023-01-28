@@ -15,7 +15,7 @@ namespace Console_Space_Invaders
 
         public static void OnLoad()
         {
-            Canvas canvas = new(@"C:\Users\gr275809\source\repos\C# Tehtävät\muut\Console_Space_Invaders\Console_Space_Invaders\Canvas\");
+            Canvas canvas = new(@"D:\visual studio projects\kouluprojektit\Space_Invaders_Console\Console_Space_Invaders\Console_Space_Invaders\Canvas\");//@"C:\Users\gr275809\source\repos\C# Tehtävät\muut\Console_Space_Invaders\Console_Space_Invaders\Canvas\");
             canvas.LoadCanvas("map.txt");
             ScreenWriter screenWriter = new();
             Player player = new Player();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Numerics;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,5 +46,6 @@ namespace Console_Space_Invaders.Entities
             }
             catch (Exception) { }
         }
+        public abstract void Update();
     }
 }
