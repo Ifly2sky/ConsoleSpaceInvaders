@@ -11,7 +11,10 @@ namespace Console_Space_Invaders.Entities
         public Enemy()
         {
             id = 2;
-            image = "¤".ToCharArray();
+            image = "█▄▄    ▀▀".ToCharArray();
+            health = 3;
+            speed = 1;
+            position = new(3, 3);
         }
 
         public override void Update()

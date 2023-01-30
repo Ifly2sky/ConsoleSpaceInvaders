@@ -16,24 +16,24 @@ namespace Console_Space_Invaders
 
         public static void OnLoad()
         {
+            ConsoleFont.SetForegroundColor(255, 255, 255);
+
             Canvas canvas = new(@"");
             canvas.LoadCanvas("map.txt");
 
-            short fontSize = 16;
+            short fontSize = 32;
 
             ConsoleFont.SetFontSize(fontSize);
             Console.SetWindowSize(canvas.mapData[0].Length, canvas.mapData.Length);
             ConsoleWindow.RemoveConsoleResize();
 
             ScreenWriter screenWriter = new();
-            Player player = new Player();
-            screenWriter.SetEntities(player);
         }
         public static void Update()
         {
             while (gameThread.IsAlive)
             {
-                
+
             }
         }
     }

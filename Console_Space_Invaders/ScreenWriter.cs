@@ -11,9 +11,10 @@ namespace Console_Space_Invaders
     {
         int[,] map = new int[11, 39];
 
-        internal void SetEntities(Player player)
+        internal void SetEntities(Player player, Enemy enemy)
         {
             player.Draw();
+            enemy.Draw();
         }
         internal void UpdateScreen()
         {

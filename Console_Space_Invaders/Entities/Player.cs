@@ -53,5 +53,10 @@ namespace Console_Space_Invaders.Entities
         {
             throw new NotImplementedException();
         }
+
+        public void MoveLeft()
+        {
+            
+        }
     }
 }
