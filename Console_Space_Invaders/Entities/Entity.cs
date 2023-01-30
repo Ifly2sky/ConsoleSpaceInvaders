@@ -19,6 +19,9 @@ namespace Console_Space_Invaders.Entities
         public int health;
         public Entity() { }
 
+        /// <summary>
+        /// draws images
+        /// </summary>
         public void Draw()
         {
             int entityPosX = (int)Math.Floor(position.X);

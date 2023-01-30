@@ -28,3 +28,4 @@ D:\visual studio projects\kouluprojektit\Space_Invaders_Console\Console_Space_In
 D:\visual studio projects\kouluprojektit\Space_Invaders_Console\Console_Space_Invaders\Console_Space_Invaders\obj\Debug\net6.0\Console_Space_Invaders.pdb
 D:\visual studio projects\kouluprojektit\Space_Invaders_Console\Console_Space_Invaders\Console_Space_Invaders\obj\Debug\net6.0\Console_Space_Invaders.genruntimeconfig.cache
 D:\visual studio projects\kouluprojektit\Space_Invaders_Console\Console_Space_Invaders\Console_Space_Invaders\obj\Debug\net6.0\ref\Console_Space_Invaders.dll
+C:\Users\gr275809\source\repos\C# Tehtävät\muut\Console_Space_Invaders\Console_Space_Invaders\obj\Debug\net6.0\Console_Space_Invaders.csproj.CopyComplete

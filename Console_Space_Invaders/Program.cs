@@ -1,5 +1,6 @@
 ﻿using Console_Space_Invaders.Entities;
 using System.Data;
+using ConsoleExtra;
 
 namespace Console_Space_Invaders
 {
@@ -15,8 +16,15 @@ namespace Console_Space_Invaders
 
         public static void OnLoad()
         {
-            Canvas canvas = new(@"D:\visual studio projects\kouluprojektit\Space_Invaders_Console\Console_Space_Invaders\Console_Space_Invaders\Canvas\");//@"C:\Users\gr275809\source\repos\C# Tehtävät\muut\Console_Space_Invaders\Console_Space_Invaders\Canvas\");
+            Canvas canvas = new(@"");
             canvas.LoadCanvas("map.txt");
+
+            short fontSize = 16;
+
+            ConsoleFont.SetFontSize(fontSize);
+            Console.SetWindowSize(canvas.mapData[0].Length, canvas.mapData.Length);
+            ConsoleWindow.RemoveConsoleResize();
+
             ScreenWriter screenWriter = new();
             Player player = new Player();
             screenWriter.SetEntities(player);
@@ -25,7 +33,7 @@ namespace Console_Space_Invaders
         {
             while (gameThread.IsAlive)
             {
-
+                
             }
         }
     }
