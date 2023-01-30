@@ -7,4 +7,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="ConsoleExtra">
+      <HintPath>bin\Debug\net6.0\ConsoleExtra.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "Console_Space_Invaders/1.0.0": {
+        "dependencies": {
+          "ConsoleExtra": "1.0.0.0"
+        },
         "runtime": {
           "Console_Space_Invaders.dll": {}
+        }
+      },
+      "ConsoleExtra/1.0.0.0": {
+        "runtime": {
+          "ConsoleExtra.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
@@ -16,6 +27,11 @@
   "libraries": {
     "Console_Space_Invaders/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsoleExtra/1.0.0.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

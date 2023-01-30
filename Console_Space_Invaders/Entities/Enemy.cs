@@ -14,5 +14,9 @@ namespace Console_Space_Invaders.Entities
             image = "¤".ToCharArray();
         }
 
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

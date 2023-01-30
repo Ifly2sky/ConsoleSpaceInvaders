@@ -19,7 +19,7 @@ namespace Console_Space_Invaders.Entities
             position = new(17, 9);
         }
         /// <summary>
-        /// 
+        /// image ordered as (center, left, right, down, up, topleft, topright, bottomleft, bottomright)
         /// </summary>
         /// <param name="startPosition"></param>
         /// <param name="speed"></param>
@@ -47,6 +47,11 @@ namespace Console_Space_Invaders.Entities
         public void Damage()
         {
             health -= 1;
+        }
+
+        public override void Update()
+        {
+            throw new NotImplementedException();
         }
     }
 }
