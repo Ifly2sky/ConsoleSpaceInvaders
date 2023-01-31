@@ -12,12 +12,11 @@ namespace Console_Space_Invaders.Entities
     public abstract class Entity
     {
         public int id;
-        public char[] image;
+        public char[] image = new char[0];
 
         public Vector2 position;
         public float speed;
         public int health;
-        public Entity() { }
 
         /// <summary>
         /// draws images
@@ -48,6 +47,11 @@ namespace Console_Space_Invaders.Entities
                 Console.Write(image[8]);
             }
             catch (Exception) { }
+        }
+
+        internal void registerEntity(ScreenWriter writer)
+        {
+            writer.entities.Add(this);
         }
         public abstract void Update();
     }
