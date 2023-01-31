@@ -53,7 +53,10 @@ namespace Console_Space_Invaders.Entities
         Random random = new Random();
         public override void Update()
         {
-            
+            Console.SetCursorPosition(0,0);
+            ConsoleFont.SetForegroundColor(random.Next(255), random.Next(255), random.Next(255));
+            Console.Write("O0000000000000");
+            ConsoleFont.SetForegroundColor(1);
         }
 
         public void MoveLeft()
