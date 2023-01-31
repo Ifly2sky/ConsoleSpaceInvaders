@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleExtra;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -49,14 +50,22 @@ namespace Console_Space_Invaders.Entities
             health -= 1;
         }
 
+        Random random = new Random();
         public override void Update()
         {
-            throw new NotImplementedException();
+            Console.SetCursorPosition(0,0);
+            ConsoleFont.SetForegroundColor(random.Next(255), random.Next(255), random.Next(255));
+            Console.Write("O0000000000000");
+            ConsoleFont.SetForegroundColor(1);
         }
 
         public void MoveLeft()
         {
-            
+            position.X += speed;
+        }
+        public void MoveRight()
+        {
+            position.X -= speed;
         }
     }
 }
