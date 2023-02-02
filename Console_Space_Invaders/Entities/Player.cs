@@ -1,6 +1,7 @@
 ﻿using ConsoleExtra;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
@@ -14,7 +15,7 @@ namespace Console_Space_Invaders.Entities
         public Player()
         {
             id = 1;
-            image = "█▄▄‾".ToCharArray();
+            image = new Chunk("█▄▄‾");
             health= 3;
             speed= 1;
             position = new(17, 9);
@@ -28,7 +29,7 @@ namespace Console_Space_Invaders.Entities
         public Player(Vector2 startPosition, float speed, int health, string image) 
         {
             id = 1;
-            this.image = image.ToCharArray();
+            this.image = new Chunk(image);
             this.health = health;
             this.speed = speed;
             position = startPosition;
@@ -50,22 +51,21 @@ namespace Console_Space_Invaders.Entities
             health -= 1;
         }
 
-        Random random = new Random();
+        long deltatime;
+        Stopwatch sw = Stopwatch.StartNew();
         public override void Update()
         {
-            Console.SetCursorPosition(0,0);
-            ConsoleFont.SetForegroundColor(random.Next(255), random.Next(255), random.Next(255));
-            Console.Write("O0000000000000");
-            ConsoleFont.SetForegroundColor(1);
+            deltatime = sw.ElapsedMilliseconds;
+            sw.Restart();
         }
 
         public void MoveLeft()
         {
-            position.X += speed;
+            position.X += speed * (deltatime/1000);
         }
         public void MoveRight()
         {
-            position.X -= speed;
+            position.X -= speed * (deltatime/1000);
         }
     }
 }

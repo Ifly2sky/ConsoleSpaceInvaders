@@ -9,8 +9,6 @@ namespace Console_Space_Invaders
         static Thread gameThread = new Thread(new ThreadStart(Update));
         static ScreenWriter screenWriter = new("");
 
-        static Player player = new Player();
-
         static readonly short fontSize = 16;
 
         static void Main(string[] args)
@@ -23,14 +21,13 @@ namespace Console_Space_Invaders
         public static void OnLoad()
         {
             ConsoleFont.SetForegroundColor(255, 255, 255);
+            ConsoleFont.DefaultBackgroundColor();
 
             screenWriter.LoadCanvas("map.txt");
 
             ConsoleFont.SetFontSize(fontSize);
             Console.SetWindowSize(screenWriter.mapData[0].Length, screenWriter.mapData.Length);
             ConsoleWindow.RemoveConsoleResize();
-
-            player.registerEntity(screenWriter);
 
             screenWriter.SetEntities();
         }
@@ -43,6 +40,7 @@ namespace Console_Space_Invaders
                 if (screenWriter.entities.Count != 0) 
                     screenWriter.entityUpdater();
                 screenWriter.Draw();
+                screenWriter.countFPS();
             }
         }
     }
