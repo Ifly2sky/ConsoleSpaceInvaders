@@ -12,42 +12,56 @@ namespace Console_Space_Invaders.Entities
     public abstract class Entity
     {
         public int id;
-        public char[] image;
+        public Chunk image = new Chunk("");
 
         public Vector2 position;
         public float speed;
         public int health;
-        public Entity() { }
 
+        int _lastX, _lastY;
         /// <summary>
-        /// draws images
+        /// draws images and clears last image
         /// </summary>
         public void Draw()
         {
             int entityPosX = (int)Math.Floor(position.X);
             int entityPosY = (int)Math.Floor(position.Y);
-            Console.SetCursorPosition(entityPosX, entityPosY);
-            Console.Write(image[0]);
-            try
+
+            if(entityPosX != _lastX && entityPosY != _lastY)
             {
-                Console.SetCursorPosition(entityPosX - 1, entityPosY);
-                Console.Write(image[1]);
-                Console.SetCursorPosition(entityPosX + 1, entityPosY);
-                Console.Write(image[2]);
-                Console.SetCursorPosition(entityPosX, entityPosY + 1);
-                Console.Write(image[3]);
-                Console.SetCursorPosition(entityPosX, entityPosY - 1);
-                Console.Write(image[4]);
-                Console.SetCursorPosition(entityPosX - 1, entityPosY - 1);
-                Console.Write(image[5]);
-                Console.SetCursorPosition(entityPosX + 1, entityPosY - 1);
-                Console.Write(image[6]);
-                Console.SetCursorPosition(entityPosX - 1, entityPosY + 1);
-                Console.Write(image[7]);
-                Console.SetCursorPosition(entityPosX + 1, entityPosY + 1);
-                Console.Write(image[8]);
+                try 
+                { 
+                    Clear(); 
+                }catch(Exception) { }
+
+                foreach (Block block in image.blocks)
+                {
+                    if (block.character != ' ' || block.character != null)
+                    {
+                        Console.SetCursorPosition(entityPosX + block.x, entityPosY + block.y);
+                        Console.Write(block.character);
+                    }
+                }
             }
-            catch (Exception) { }
+
+            _lastX = entityPosX;
+            _lastY = entityPosY;
+        }
+        public void Clear()
+        {
+            foreach (Block block in image.blocks)
+            {
+                if (block.character != ' ' || block.character != null)
+                {
+                    Console.SetCursorPosition(_lastX + block.x, _lastY + block.y);
+                    Console.Write(' ');
+                }
+            }
+        }
+
+        internal void registerEntity(ScreenWriter writer)
+        {
+            writer.entities.Add(this);
         }
         public abstract void Update();
     }
