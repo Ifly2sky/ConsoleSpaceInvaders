@@ -1,6 +1,7 @@
 ﻿using Console_Space_Invaders.Entities;
 using System.Data;
 using ConsoleExtra;
+using System.Diagnostics;
 
 namespace Console_Space_Invaders
 {
@@ -10,6 +11,7 @@ namespace Console_Space_Invaders
         static ScreenWriter screenWriter = new("");
 
         static readonly short fontSize = 16;
+        public static double deltatime;
 
         static void Main(string[] args)
         {
@@ -21,7 +23,6 @@ namespace Console_Space_Invaders
         public static void OnLoad()
         {
             ConsoleFont.SetForegroundColor(255, 255, 255);
-            ConsoleFont.DefaultBackgroundColor();
 
             screenWriter.LoadCanvas("map.txt");
 
@@ -34,13 +35,21 @@ namespace Console_Space_Invaders
         public static void Update()
         {
             Console.CursorVisible = false;
+            Stopwatch stopWatch = Stopwatch.StartNew();
 
             while (gameThread.IsAlive)
             {
-                if (screenWriter.entities.Count != 0) 
+                Console.SetCursorPosition(0, 0);
+
+                if (screenWriter.entities.Count != 0)
+                {
                     screenWriter.entityUpdater();
-                screenWriter.Draw();
+                    screenWriter.entityDrawer();
+                }
                 screenWriter.countFPS();
+                screenWriter.GetDeltaTime(out deltatime, stopWatch);
+
+                Thread.Sleep(1);
             }
         }
     }

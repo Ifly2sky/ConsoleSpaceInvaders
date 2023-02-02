@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\gr275809\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Z220\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gr275809\\source\\repos\\C# Tehtävät\\muut\\Console_Space_Invaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
+      "projectUniqueName": "D:\\visual studio projects\\kouluprojektit\\Space_Invaders_Console\\Console_Space_Invaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
       "projectName": "Console_Space_Invaders",
-      "projectPath": "C:\\Users\\gr275809\\source\\repos\\C# Tehtävät\\muut\\Console_Space_Invaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
-      "packagesPath": "C:\\Users\\gr275809\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gr275809\\source\\repos\\C# Tehtävät\\muut\\Console_Space_Invaders\\Console_Space_Invaders\\obj\\",
+      "projectPath": "D:\\visual studio projects\\kouluprojektit\\Space_Invaders_Console\\Console_Space_Invaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
+      "packagesPath": "C:\\Users\\Z220\\.nuget\\packages\\",
+      "outputPath": "D:\\visual studio projects\\kouluprojektit\\Space_Invaders_Console\\Console_Space_Invaders\\Console_Space_Invaders\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\gr275809\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Z220\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

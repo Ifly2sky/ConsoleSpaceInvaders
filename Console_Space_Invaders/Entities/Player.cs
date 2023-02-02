@@ -17,15 +17,10 @@ namespace Console_Space_Invaders.Entities
             id = 1;
             image = new Chunk("█▄▄‾");
             health= 3;
-            speed= 1;
-            position = new(17, 9);
+            speed= 0.1;
+            position = new(17, 17);
         }
-        /// <summary>
-        /// image ordered as (center, left, right, down, up, topleft, topright, bottomleft, bottomright)
-        /// </summary>
-        /// <param name="startPosition"></param>
-        /// <param name="speed"></param>
-        /// <param name="health"> image ordered as (center, left, right, down, up, topleft, topright, bottomleft, bottomright)</param>
+
         public Player(Vector2 startPosition, float speed, int health, string image) 
         {
             id = 1;
@@ -51,21 +46,24 @@ namespace Console_Space_Invaders.Entities
             health -= 1;
         }
 
-        long deltatime;
-        Stopwatch sw = Stopwatch.StartNew();
         public override void Update()
         {
-            deltatime = sw.ElapsedMilliseconds;
-            sw.Restart();
+            
         }
 
         public void MoveLeft()
         {
-            position.X += speed * (deltatime/1000);
+            if (position.X - speed * Program.deltatime >= 2) 
+            {
+                position.X -= (float)(speed * Program.deltatime);
+            }
         }
         public void MoveRight()
         {
-            position.X -= speed * (deltatime/1000);
+            if (position.X + speed * Program.deltatime <= 76)
+            {
+                position.X += (float)(speed * Program.deltatime);
+            }
         }
     }
 }

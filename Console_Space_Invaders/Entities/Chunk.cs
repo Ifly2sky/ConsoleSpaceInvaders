@@ -48,8 +48,8 @@ namespace Console_Space_Invaders.Entities
             topLeftBlock.y = -1;
             topRightBlock.x = 1;
             topRightBlock.y = -1;
-            bottomLeftBlock.x = 1;
-            bottomLeftBlock.y = -1;
+            bottomLeftBlock.x = -1;
+            bottomLeftBlock.y = 1;
             bottomRightBlock.x = 1;
             bottomRightBlock.y = 1;
 

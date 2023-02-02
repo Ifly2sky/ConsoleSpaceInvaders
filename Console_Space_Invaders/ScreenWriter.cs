@@ -18,10 +18,12 @@ namespace Console_Space_Invaders
         int[,] entityMap = new int[12,40];
 
         internal delegate void Del();
-        internal Del entityUpdater;
+        internal Del? entityUpdater;
+        internal Del? entityDrawer;
         internal List<Entity> entities = new List<Entity>();
 
         static Player player = new Player();
+        KeyHandler keyHandler = new KeyHandler();
 
         internal ScreenWriter(string fileLocation)
         {
@@ -31,21 +33,21 @@ namespace Console_Space_Invaders
         internal void SetEntities()
         {
             player.registerEntity(this);
+
+            for(int i = 1; i < 15; i++)
+            {
+                Enemy newEnemy = new(i*5, 3);
+                newEnemy.registerEntity(this);
+            }
+
             foreach (var entity in entities)
             {
                 entityUpdater += entity.Update;
             }
-        }
-        internal void Draw()
-        {
-            /*for (int h = 0; h <= entityMap.GetLength(0); h++)
+            foreach (var entity in entities)
             {
-                for (int v = 0; v <= entityMap.GetLength(1); v++)
-                {
-                    Console.SetCursorPosition(v+1, h+1);
-                }
-            }*/
-            player.Draw();
+                entityDrawer += entity.Draw;
+            }
         }
         internal void LoadCanvas(string file)
         {
@@ -60,28 +62,55 @@ namespace Console_Space_Invaders
             }
             entityMap = new int[mapData.GetLength(0) - 2, mapData[0].Length - 2];
             sw.Start();
+
+            keyHandler.ListenToKey(ConsoleKey.D, player.MoveRight);
+            keyHandler.ListenToKey(ConsoleKey.A, player.MoveLeft);
         }
 
         int _frames = 0;
         int fps = 0;
 
         Stopwatch sw = new();
-        Random random = new Random();
+
+        //counts frames and displays their count at every second
         public void countFPS()
         {
             if (sw.ElapsedMilliseconds >= 1000)
             {
                 fps = _frames;
                 _frames = 0;
+
+                Console.SetCursorPosition(0, 0);
+                ConsoleFont.SetBackgroundColor(255, 255, 255);
+                ConsoleFont.SetForegroundColor(0, 0, 0);
+                Console.Write(fps);
+                ConsoleFont.SetForegroundColor(0);
+                ConsoleFont.SetBackgroundColor(0);
+
                 sw.Restart();
             }
-            Console.SetCursorPosition(0, 0);
-            ConsoleFont.SetBackgroundColor(255, 255, 255);
-            ConsoleFont.SetForegroundColor(random.Next(255), random.Next(255), random.Next(255));
-            Console.Write(fps);
-            ConsoleFont.SetForegroundColor(1);
-            ConsoleFont.DefaultBackgroundColor();
             _frames++;
+        }
+
+        //gets deltatime
+        double lastFrame;
+        TimeSpan ts;
+        public void GetDeltaTime(out double deltatime, Stopwatch stopWatch)
+        {
+            if (stopWatch.ElapsedMilliseconds > 500)
+            {
+                ts = stopWatch.Elapsed;
+            }
+            else
+            {
+                ts = stopWatch.Elapsed;
+            }
+
+            double currentFrame = ts.TotalMilliseconds;
+
+            deltatime = currentFrame - lastFrame;
+
+            lastFrame = ts.TotalMilliseconds;
         }
     }
 }

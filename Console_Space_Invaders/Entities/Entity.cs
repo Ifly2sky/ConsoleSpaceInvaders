@@ -15,7 +15,7 @@ namespace Console_Space_Invaders.Entities
         public Chunk image = new Chunk("");
 
         public Vector2 position;
-        public float speed;
+        public double speed;
         public int health;
 
         int _lastX, _lastY;
@@ -27,7 +27,7 @@ namespace Console_Space_Invaders.Entities
             int entityPosX = (int)Math.Floor(position.X);
             int entityPosY = (int)Math.Floor(position.Y);
 
-            if(entityPosX != _lastX && entityPosY != _lastY)
+            if(entityPosX != _lastX || entityPosY != _lastY)
             {
                 try 
                 { 
