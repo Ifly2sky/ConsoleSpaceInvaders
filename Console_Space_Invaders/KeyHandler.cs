@@ -35,6 +35,11 @@ namespace Console_Space_Invaders
         {
             keyList.Add(new FunctionKey(key, function));
         }
+        /// <summary>
+        /// sets key to be listened to and the function called when the key is heard
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="function"></param>
         internal void ListenToKey(FunctionKey functionKey)
         {
             keyList.Add(functionKey);

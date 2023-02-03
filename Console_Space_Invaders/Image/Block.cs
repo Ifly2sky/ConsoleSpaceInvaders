@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Space_Invaders.Entities
+namespace Console_Space_Invaders.Image
 {
     public class Block
     {

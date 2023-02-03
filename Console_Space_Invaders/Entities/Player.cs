@@ -7,18 +7,24 @@ using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using Console_Space_Invaders.Image;
 
 namespace Console_Space_Invaders.Entities
 {
+    
     public class Player : Entity
     {
+        Projectile projectile;
+
         public Player()
         {
             id = 1;
             image = new Chunk("█▄▄‾");
             health= 3;
-            speed= 0.1;
-            position = new(17, 17);
+            speed= 75;
+            position = new(5, 5);
+
+            projectile = new Projectile(new(position.X, position.Y+2), new(0,1), 10);
         }
 
         public Player(Vector2 startPosition, float speed, int health, string image) 
@@ -60,7 +66,7 @@ namespace Console_Space_Invaders.Entities
         }
         public void MoveRight()
         {
-            if (position.X + speed * Program.deltatime <= 76)
+            if (position.X + speed * Program.deltatime <= ScreenWriter.entityMap.GetLength(1))
             {
                 position.X += (float)(speed * Program.deltatime);
             }

@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Console_Space_Invaders.Image;
 
 namespace Console_Space_Invaders.Entities
 {
@@ -36,7 +37,7 @@ namespace Console_Space_Invaders.Entities
 
                 foreach (Block block in image.blocks)
                 {
-                    if (block.character != ' ' || block.character != null)
+                    if (block.character != ' ' )//|| block.character != null)
                     {
                         Console.SetCursorPosition(entityPosX + block.x, entityPosY + block.y);
                         Console.Write(block.character);
@@ -51,7 +52,7 @@ namespace Console_Space_Invaders.Entities
         {
             foreach (Block block in image.blocks)
             {
-                if (block.character != ' ' || block.character != null)
+                if (block.character != ' ' )//|| block.character != null)
                 {
                     Console.SetCursorPosition(_lastX + block.x, _lastY + block.y);
                     Console.Write(' ');

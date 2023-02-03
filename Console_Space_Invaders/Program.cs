@@ -2,6 +2,7 @@
 using System.Data;
 using ConsoleExtra;
 using System.Diagnostics;
+using System.Numerics;
 
 namespace Console_Space_Invaders
 {
@@ -24,11 +25,12 @@ namespace Console_Space_Invaders
         {
             ConsoleFont.SetForegroundColor(255, 255, 255);
 
-            screenWriter.LoadCanvas("map.txt");
+            screenWriter.Load("map.txt");
 
             ConsoleFont.SetFontSize(fontSize);
-            Console.SetWindowSize(screenWriter.mapData[0].Length, screenWriter.mapData.Length);
+            Console.SetWindowSize(ScreenWriter.mapData[0].Length+1, ScreenWriter.mapData.Length+1);
             ConsoleWindow.RemoveConsoleResize();
+            Console.SetBufferSize(ScreenWriter.mapData[0].Length+1, ScreenWriter.mapData.Length+1);
 
             screenWriter.SetEntities();
         }

@@ -5,7 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Space_Invaders.Entities
+namespace Console_Space_Invaders.Image
 {
     public class Chunk
     {
@@ -22,7 +22,7 @@ namespace Console_Space_Invaders.Entities
             bottomLeftBlock = new(),
             bottomRightBlock = new();
 
-        public Chunk(string chars) 
+        public Chunk(string chars)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace Console_Space_Invaders.Entities
                 bottomLeftBlock.character = chars[7];
                 bottomRightBlock.character = chars[8];
             }
-            catch(Exception) { }
+            catch (Exception) { }
 
             leftBlock.x = -1;
             rightBlock.x = 1;

@@ -12,17 +12,27 @@ namespace Console_Space_Invaders
 {
     internal class ScreenWriter
     {
+        public const int enemyRows = 4;
+        public const int enemyCols = 12;
+        public const int spacing = 3;
+
+
         string fileLocation;
-        internal char[][] mapData = new char[12][];
+        internal static char[][] mapData = new char[12][];
 
-        int[,] entityMap = new int[12,40];
+        public static int[,] entityMap = new int[12,40];
 
+        //entity updaters and drawers
         internal delegate void Del();
         internal Del? entityUpdater;
         internal Del? entityDrawer;
-        internal List<Entity> entities = new List<Entity>();
 
+        //entities list, player and enemygroup
+        internal List<Entity> entities = new List<Entity>();
         static Player player = new Player();
+        static EnemyGroup enemyGroup = new EnemyGroup();
+
+        //handles buttom presses independetly from main loop
         KeyHandler keyHandler = new KeyHandler();
 
         internal ScreenWriter(string fileLocation)
@@ -30,14 +40,23 @@ namespace Console_Space_Invaders
             this.fileLocation = fileLocation;
         }
 
-        internal void SetEntities()
+        //loads every entity
+        internal void SetEntities() //sets all entities
         {
             player.registerEntity(this);
+            player.SetPosition(2, mapData.Length - 3);
 
-            for(int i = 1; i < 15; i++)
+            int row = 2;
+            int cols = enemyCols+1;
+            for (int col = 1; col < cols; col++)//adds enemies for every row and column
             {
-                Enemy newEnemy = new(i*5, 3);
+                Enemy newEnemy = new(col*5, row);
                 newEnemy.registerEntity(this);
+                if(col >= cols-1 && row <= (enemyRows-1)*spacing)
+                {
+                    col = 0;
+                    row += spacing;
+                }
             }
 
             foreach (var entity in entities)
@@ -48,21 +67,30 @@ namespace Console_Space_Invaders
             {
                 entityDrawer += entity.Draw;
             }
+            foreach(Enemy enemy in entities.OfType<Enemy>())
+            {
+                enemyGroup.AddEnemy(enemy);
+            }
+
+            entityUpdater += enemyGroup.OnUpdate;
+
         }
-        internal void LoadCanvas(string file)
+        internal void Load(string file) //loads a map from file and loads game
         {
             string[] map = File.ReadAllLines(fileLocation + file);
             mapData = new char[map.Length][];
             int row = 0;
-            foreach (string line in map)
+            foreach (string line in map)//adds file lines to mapData array
             {
                 mapData[row] = line.ToCharArray();
                 row++;
                 Console.WriteLine(line);
             }
-            entityMap = new int[mapData.GetLength(0) - 2, mapData[0].Length - 2];
-            sw.Start();
+            entityMap = new int[mapData.GetLength(0) - 2, mapData[0].Length - 2];//sets entity movement area
 
+            sw.Start();//starts fps calculation timer
+
+            //sets movement keys
             keyHandler.ListenToKey(ConsoleKey.D, player.MoveRight);
             keyHandler.ListenToKey(ConsoleKey.A, player.MoveLeft);
         }
@@ -92,7 +120,7 @@ namespace Console_Space_Invaders
             _frames++;
         }
 
-        //gets deltatime
+        //gets deltatime, -TODO fix deltatime
         double lastFrame;
         TimeSpan ts;
         public void GetDeltaTime(out double deltatime, Stopwatch stopWatch)
@@ -108,9 +136,12 @@ namespace Console_Space_Invaders
 
             double currentFrame = ts.TotalMilliseconds;
 
-            deltatime = currentFrame - lastFrame;
+            deltatime = (currentFrame - lastFrame)/1000;
 
             lastFrame = ts.TotalMilliseconds;
+
+            Console.SetCursorPosition(10, 0);
+            Console.Write(deltatime);
         }
     }
 }
