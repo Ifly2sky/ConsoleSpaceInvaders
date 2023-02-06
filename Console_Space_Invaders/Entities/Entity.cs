@@ -16,7 +16,7 @@ namespace Console_Space_Invaders.Entities
         public Chunk image = new Chunk("");
 
         public Vector2 position;
-        public double speed;
+        public float speed;
         public int health;
 
         int _lastX, _lastY;

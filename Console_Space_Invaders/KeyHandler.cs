@@ -1,23 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+
 
 namespace Console_Space_Invaders
 {
     internal class FunctionKey
     {
+
         internal FunctionKey(ConsoleKey key, Action function)
         {
             this.key = key;
             this.function = function;
+
         }
         internal ConsoleKey key { get; set; }
         internal Action function { get; set; }
     }
     public class KeyHandler
     {
+        [DllImport("user32.dll")]
+        static extern int GetAsyncKeyState(int key);
+
         Thread keyHandlerThread;
         static List<FunctionKey> keyList = new List<FunctionKey>();
         public KeyHandler()
@@ -47,16 +56,20 @@ namespace Console_Space_Invaders
 
         private void CheckKey()
         {
-            while(keyHandlerThread.IsAlive)
+            while (keyHandlerThread.IsAlive)
             {
-                ConsoleKeyInfo keyPressed = Console.ReadKey(true);
-                foreach (FunctionKey key in keyList)
+                try
                 {
-                    if(keyPressed.Key == key.key)
+                    foreach (FunctionKey key in keyList)
                     {
-                        key.function.Invoke();
+                        int i = GetAsyncKeyState((int)key.key);
+                        if (i != 0)
+                        {
+                            key.function.Invoke();
+                        }
                     }
-                }
+                } catch (Exception) { }
+                Thread.Sleep(1);
             }
         }
     }

@@ -14,17 +14,19 @@ namespace Console_Space_Invaders.Entities
     
     public class Player : Entity
     {
-        Projectile projectile;
+        List<Projectile> projectiles = new();
+
+        Stopwatch bulletTimer = new Stopwatch();
+        const long bulletTime = 500;
 
         public Player()
         {
             id = 1;
             image = new Chunk("█▄▄‾");
             health= 3;
-            speed= 75;
+            speed= 0.5f;
             position = new(5, 5);
-
-            projectile = new Projectile(new(position.X, position.Y+2), new(0,1), 10);
+            bulletTimer.Start();
         }
 
         public Player(Vector2 startPosition, float speed, int health, string image) 
@@ -34,6 +36,8 @@ namespace Console_Space_Invaders.Entities
             this.health = health;
             this.speed = speed;
             position = startPosition;
+
+            bulletTimer.Start();
         }
         public void SetPosition(Vector2 pos)
         {
@@ -50,25 +54,47 @@ namespace Console_Space_Invaders.Entities
         public void Damage()
         {
             health -= 1;
+            Debug.WriteLine(health);
         }
 
         public override void Update()
         {
-            
+            for(int projectile = 0; projectile < projectiles.Count; projectile++)
+            {
+                Projectile proj = projectiles[projectile];
+
+                proj.Travel();
+                proj.Draw();
+                if (proj.position.Y <= 2)
+                {
+                    projectiles.Remove(proj);
+                    proj.Delete();
+                }
+            }
         }
 
         public void MoveLeft()
         {
-            if (position.X - speed * Program.deltatime >= 2) 
+            if (position.X - speed * (float)Program.deltatime >= 2) 
             {
-                position.X -= (float)(speed * Program.deltatime);
+                position.X -= speed;
             }
         }
         public void MoveRight()
         {
-            if (position.X + speed * Program.deltatime <= ScreenWriter.entityMap.GetLength(1))
+            if (position.X + speed * (float)Program.deltatime <= ScreenWriter.entityMap.GetLength(1)-1)
             {
-                position.X += (float)(speed * Program.deltatime);
+                position.X += speed;
+            }
+        }
+
+        public void Shoot()
+        {
+            if (bulletTimer.ElapsedMilliseconds >= bulletTime)
+            {
+                projectiles.Add(new Projectile(new(position.X, position.Y + 2), new(0, -1), 4));
+                projectiles[projectiles.Count - 1].AddImpactEvent(this, Damage);
+                bulletTimer.Restart();     
             }
         }
     }

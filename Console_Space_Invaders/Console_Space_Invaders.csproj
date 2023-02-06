@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -10,6 +10,9 @@
   <ItemGroup>
     <Reference Include="ConsoleExtra">
       <HintPath>bin\Debug\net6.0\ConsoleExtra.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <HintPath>..\..\..\..\..\..\Downloads\PresentationCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 

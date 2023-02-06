@@ -90,9 +90,11 @@ namespace Console_Space_Invaders
 
             sw.Start();//starts fps calculation timer
 
-            //sets movement keys
+            //sets movement 
+            keyHandler.ListenToKey(ConsoleKey.Spacebar, player.Shoot);
             keyHandler.ListenToKey(ConsoleKey.D, player.MoveRight);
             keyHandler.ListenToKey(ConsoleKey.A, player.MoveLeft);
+
         }
 
         int _frames = 0;
@@ -120,10 +122,9 @@ namespace Console_Space_Invaders
             _frames++;
         }
 
-        //gets deltatime, -TODO fix deltatime
-        double lastFrame;
-        TimeSpan ts;
-        public void GetDeltaTime(out double deltatime, Stopwatch stopWatch)
+        double lastFrame; // time before updates
+        TimeSpan ts; // timespan fordeltatime
+        public void GetDeltaTime(out double deltatime, Stopwatch stopWatch) //gets deltatime
         {
             if (stopWatch.ElapsedMilliseconds > 500)
             {
@@ -139,9 +140,6 @@ namespace Console_Space_Invaders
             deltatime = (currentFrame - lastFrame)/1000;
 
             lastFrame = ts.TotalMilliseconds;
-
-            Console.SetCursorPosition(10, 0);
-            Console.Write(deltatime);
         }
     }
 }

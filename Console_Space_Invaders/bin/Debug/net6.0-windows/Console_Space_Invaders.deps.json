@@ -1,0 +1,53 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Console_Space_Invaders/1.0.0": {
+        "dependencies": {
+          "ConsoleExtra": "1.0.0.0",
+          "PresentationCore": "4.0.0.0"
+        },
+        "runtime": {
+          "Console_Space_Invaders.dll": {}
+        }
+      },
+      "ConsoleExtra/1.0.0.0": {
+        "runtime": {
+          "ConsoleExtra.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "PresentationCore/4.0.0.0": {
+        "runtime": {
+          "PresentationCore.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.7.3062.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Console_Space_Invaders/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConsoleExtra/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PresentationCore/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
