@@ -8,7 +8,7 @@ namespace Console_Space_Invaders
 {
     internal class Program
     {
-        static Thread gameThread = new Thread(new ThreadStart(Update));
+        public static Thread gameThread = new Thread(new ThreadStart(Update));
         static ScreenWriter screenWriter = new("");
 
         static readonly short fontSize = 16;
@@ -24,6 +24,7 @@ namespace Console_Space_Invaders
         public static void OnLoad()
         {
             ConsoleFont.SetForegroundColor(255, 255, 255);
+            ConsoleFont.SetBackgroundColor(0, 0, 0);
 
             screenWriter.Load("map.txt");
 

@@ -12,6 +12,18 @@ namespace Console_Space_Invaders.Entities
 {
     public abstract class Entity
     {
+        public struct EntityColor
+        {
+            public int r, g, b;
+
+            public EntityColor(int r, int g, int b)
+            {
+                this.r = r;
+                this.g = g;
+                this.b = b;
+            }
+        }
+
         public int id;
         public Chunk image = new Chunk("");
 
@@ -23,7 +35,7 @@ namespace Console_Space_Invaders.Entities
         /// <summary>
         /// draws images and clears last image
         /// </summary>
-        public void Draw()
+        public virtual void Draw()
         {
             int entityPosX = (int)Math.Floor(position.X);
             int entityPosY = (int)Math.Floor(position.Y);
@@ -60,10 +72,15 @@ namespace Console_Space_Invaders.Entities
             }
         }
 
-        internal void registerEntity(ScreenWriter writer)
+        internal void RegisterEntity(ScreenWriter writer)
         {
             writer.entities.Add(this);
         }
+        internal void UnregisterEntity(ScreenWriter writer)
+        {
+            writer.entities.Remove(this);
+        }
+
         public abstract void Update();
     }
 }

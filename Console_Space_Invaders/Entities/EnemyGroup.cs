@@ -10,7 +10,7 @@ namespace Console_Space_Invaders.Entities
 {
     internal class EnemyGroup
     {
-        internal List<Enemy> enemies = new List<Enemy>();
+        public static List<Enemy> enemies = new List<Enemy>();
 
         private string direction = "left";
 
@@ -51,6 +51,17 @@ namespace Console_Space_Invaders.Entities
                         }
                     }
                     break;
+            }
+            if (enemies[enemies.Count-1].position.Y == ScreenWriter.mapData.GetLength(0) - 2)
+            {
+                Console.SetCursorPosition(ScreenWriter.mapData[0].Length / 2-5, ScreenWriter.mapData.Length / 3);
+                Console.Write("Game Over");
+
+                Thread.Sleep(1000);
+
+                Console.SetBufferSize(ScreenWriter.mapData[0].Length + 1, ScreenWriter.mapData.Length + 20);
+                Console.SetCursorPosition(0, ScreenWriter.mapData.GetLength(0)+2);
+                Environment.Exit(0);
             }
         }
     }

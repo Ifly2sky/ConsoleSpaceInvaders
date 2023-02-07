@@ -8,8 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Console_Space_Invaders/1.0.0": {
         "dependencies": {
-          "ConsoleExtra": "1.0.0.0",
-          "PresentationCore": "4.0.0.0"
+          "ConsoleExtra": "1.0.0.0"
         },
         "runtime": {
           "Console_Space_Invaders.dll": {}
@@ -22,14 +21,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "PresentationCore/4.0.0.0": {
-        "runtime": {
-          "PresentationCore.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.7.3062.0"
-          }
-        }
       }
     }
   },
@@ -40,11 +31,6 @@
       "sha512": ""
     },
     "ConsoleExtra/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "PresentationCore/4.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

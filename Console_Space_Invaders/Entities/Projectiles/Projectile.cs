@@ -13,16 +13,25 @@ namespace Console_Space_Invaders.Entities
 
         struct Impact
         {
-            internal Entity entity { get; set; }
-            internal Action action { get; set; }
+            internal Entity? Entity { get; set; }
+            internal List<Entity>? EntityList { get; set; }
+            internal Action Action { get; set; }
 
-            internal bool happened { get; set; }
+            internal bool Happened { get; set; }
 
             internal Impact(Entity entity, Action action)
             {
-                this.entity = entity;
-                this.action = action;
-                this.happened = false;
+                this.Entity = entity;
+                this.Action = action;
+                this.Happened = false;
+                this.EntityList = null;
+            }
+            internal Impact(List<Entity> entityList, Action action)
+            {
+                this.EntityList = entityList;
+                this.Action = action;
+                this.Happened = false;
+                this.Entity = null;
             }
         }
 
@@ -30,15 +39,12 @@ namespace Console_Space_Invaders.Entities
         public Vector2 direction;
         public float speed;
 
-        char image = '\u0027';
+        readonly Stopwatch iframes = new();
+
+        readonly char image = '\u0027';
         //char image2 = '\u0022'; = "
 
         private int _lastX = 0, _lastY = 0;
-
-        private delegate void Del();
-        private Del ImpactEvents;
-
-        List<Impact> impactEvents = new();
 
         public Projectile(Vector2 position, Vector2 direction, float speed) 
         {
@@ -48,25 +54,8 @@ namespace Console_Space_Invaders.Entities
 
             _lastX = (int)Math.Floor(this.position.X);
             _lastY = (int)Math.Floor(this.position.Y);
-        }
 
-        public void AddImpactEvent(Entity entity, Action action)
-        {
-            impactEvents.Add(new(entity, action));
-        }
-
-        void CheckEvents()
-        {
-            double thisPosX = Math.Floor(position.X);
-            double thisPosY = Math.Floor(position.Y);
-
-            foreach (Impact impact in impactEvents)
-            {
-                if (thisPosX == Math.Floor(impact.entity.position.X) && thisPosY == Math.Floor(impact.entity.position.Y))
-                {
-                    impact.action.Invoke();
-                }
-            }
+            iframes.Start();
         }
 
         public void Travel()
@@ -74,7 +63,7 @@ namespace Console_Space_Invaders.Entities
             position.X += direction.X * speed * (float)Program.deltatime;
             position.Y += direction.Y * speed * (float)Program.deltatime;
 
-            CheckEvents();
+            //CheckEvents();
         }
         public void Draw()
         {

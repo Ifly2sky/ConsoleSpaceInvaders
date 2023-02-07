@@ -14,10 +14,10 @@ namespace Console_Space_Invaders.Entities
     
     public class Player : Entity
     {
-        List<Projectile> projectiles = new();
+        public List<Projectile> projectiles = new();
 
         Stopwatch bulletTimer = new Stopwatch();
-        const long bulletTime = 500;
+        const long bulletTime = 1000;
 
         public Player()
         {
@@ -92,10 +92,16 @@ namespace Console_Space_Invaders.Entities
         {
             if (bulletTimer.ElapsedMilliseconds >= bulletTime)
             {
-                projectiles.Add(new Projectile(new(position.X, position.Y + 2), new(0, -1), 4));
-                projectiles[projectiles.Count - 1].AddImpactEvent(this, Damage);
+                projectiles.Add(new Projectile(new(position.X, position.Y - 1), new(0, -1), 4));
                 bulletTimer.Restart();     
             }
+        }
+
+        public override void Draw()
+        {
+            ConsoleFont.SetForegroundColor(200, 200, 255);
+            base.Draw();
+            ConsoleFont.SetForegroundColor(255, 255, 255);
         }
     }
 }
