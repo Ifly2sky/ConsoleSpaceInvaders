@@ -43,7 +43,7 @@ namespace Console_Space_Invaders
 
             while (gameThread.IsAlive)
             {
-                Console.SetCursorPosition(0, 0);
+                Console.SetCursorPosition(0,0); // this removes bugs
 
                 if (screenWriter.entities.Count != 0)
                 {
