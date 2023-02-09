@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Console_Space_Invaders.Entities
 {
     internal class EnemyGroup
@@ -52,7 +45,9 @@ namespace Console_Space_Invaders.Entities
                     }
                     break;
             }
-            if (enemies[enemies.Count-1].position.Y == ScreenWriter.mapData.GetLength(0) - 2)
+
+            Enemy? lastAlive = GetLastAliveEnemy();
+            if (lastAlive != null && lastAlive.position.Y >= ScreenWriter.mapData.GetLength(0) - 2)
             {
                 Console.SetCursorPosition(ScreenWriter.mapData[0].Length / 2-5, ScreenWriter.mapData.Length / 3);
                 Console.Write("Game Over");
@@ -63,6 +58,27 @@ namespace Console_Space_Invaders.Entities
                 Console.SetCursorPosition(0, ScreenWriter.mapData.GetLength(0)+2);
                 Environment.Exit(0);
             }
+            else if (lastAlive == null)
+            {
+                Console.SetCursorPosition(ScreenWriter.mapData[0].Length / 2 - 5, ScreenWriter.mapData.Length / 3);
+                Console.Write("You Win");
+
+                Thread.Sleep(1000);
+
+                Console.SetBufferSize(ScreenWriter.mapData[0].Length + 1, ScreenWriter.mapData.Length + 20);
+                Console.SetCursorPosition(0, ScreenWriter.mapData.GetLength(0) + 2);
+                Environment.Exit(0);
+            }
+        }
+
+        //returns last enemy alive if an alive enemy exists. Else returns nothing
+        private Enemy? GetLastAliveEnemy()
+        {
+            for (int nextLastEnemy = 0; nextLastEnemy < enemies.Count; nextLastEnemy++)
+            {
+                if (enemies[enemies.Count-(1+nextLastEnemy)].IsAlive) { return enemies[enemies.Count - (1 + nextLastEnemy)]; }
+            }
+            return null;
         }
     }
 }

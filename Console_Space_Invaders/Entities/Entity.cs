@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 using Console_Space_Invaders.Image;
 
 namespace Console_Space_Invaders.Entities
 {
     public abstract class Entity
     {
-        public struct EntityColor
+        public struct EntityColor // color of entitites
         {
             public int r, g, b;
 
@@ -24,23 +17,22 @@ namespace Console_Space_Invaders.Entities
             }
         }
 
-        public int id;
         public Chunk image = new Chunk("");
 
         public Vector2 position;
         public float speed;
-        public int health;
 
-        int _lastX, _lastY;
+        int _lastX, _lastY;//last position on screen
         /// <summary>
         /// draws images and clears last image
         /// </summary>
-        public virtual void Draw()
+        public virtual void Draw()//draw new entity image
         {
+            //math.floor allows turning float coordinates into console positions
             int entityPosX = (int)Math.Floor(position.X);
             int entityPosY = (int)Math.Floor(position.Y);
 
-            if(entityPosX != _lastX || entityPosY != _lastY)
+            if(entityPosX != _lastX || entityPosY != _lastY) // only draws new frame if something has moved
             {
                 try 
                 { 
@@ -60,11 +52,11 @@ namespace Console_Space_Invaders.Entities
             _lastX = entityPosX;
             _lastY = entityPosY;
         }
-        public void Clear()
+        public void Clear()//remove current entity image
         {
             foreach (Block block in image.blocks)
             {
-                if (block.character != ' ' )//|| block.character != null)
+                if (block.character != ' ' )
                 {
                     Console.SetCursorPosition(_lastX + block.x, _lastY + block.y);
                     Console.Write(' ');
@@ -81,6 +73,6 @@ namespace Console_Space_Invaders.Entities
             writer.entities.Remove(this);
         }
 
-        public abstract void Update();
+        public abstract void Update();//update for all entities
     }
 }

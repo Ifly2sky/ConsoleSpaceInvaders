@@ -1,40 +1,36 @@
 ﻿using Console_Space_Invaders.Entities;
 using ConsoleExtra;
-using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Console_Space_Invaders
 {
-    internal class ScreenWriter
+    internal class ScreenWriter //writes on the screen
     {
         public const int enemyRows = 4;
         public const int enemyCols = 12;
-        public const int spacing = 3;
+        public const int spacing = 3; // amount of rows inbetween enemies
 
 
         string fileLocation;
-        internal static char[][] mapData = new char[12][];
 
-        public static int[,] entityMap = new int[12,40];
+        internal static char[][] mapData = new char[12][];//map imformation
+
+        public static int[,] entityMap = new int[12,40];// entity information
 
         //entity updaters and drawers
         internal delegate void Del();
-        internal Del? entityUpdater;
-        internal Del? entityDrawer;
+        internal Del? entityUpdater; // contains all functions for updating
+        internal Del? entityDrawer; // contains all functions for drawing
 
         //entities list, player and enemygroup
-        internal List<Entity> entities = new List<Entity>();
         public static Player player = new Player();
-        public static EnemyGroup enemyGroup = new EnemyGroup();
+        internal List<Entity> entities = new List<Entity>(); 
+        public static EnemyGroup enemyGroup = new EnemyGroup(); 
 
         //handles buttom presses independetly from main loop
         KeyHandler keyHandler = new KeyHandler();
+
+        Stopwatch sw = new(); //stopwatch for fps calculation
 
         internal ScreenWriter(string fileLocation)
         {
@@ -48,6 +44,7 @@ namespace Console_Space_Invaders
             player.SetPosition(2, mapData.Length - 3);
 
             Entity.EntityColor color = new(randomColor.Next(255), randomColor.Next(255), randomColor.Next(255));
+
             int row = 2;
             int cols = enemyCols+1;
             for (int col = 1; col < cols; col++)//adds enemies for every row and column
@@ -58,7 +55,7 @@ namespace Console_Space_Invaders
                 {
                     col = 0;
                     row += spacing;
-                    color = new(randomColor.Next(255), randomColor.Next(255), randomColor.Next(255));
+                    color = new(randomColor.Next(255), randomColor.Next(255), randomColor.Next(255));//enemy color is random based on the row it is on
                 }
             }
 
@@ -101,8 +98,6 @@ namespace Console_Space_Invaders
 
         int _frames = 0;
         int fps = 0;
-
-        Stopwatch sw = new();
 
         //counts frames and displays their count at every second
         public void countFPS()

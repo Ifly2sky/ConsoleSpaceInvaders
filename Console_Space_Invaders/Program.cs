@@ -26,8 +26,9 @@ namespace Console_Space_Invaders
             ConsoleFont.SetForegroundColor(255, 255, 255);
             ConsoleFont.SetBackgroundColor(0, 0, 0);
 
-            screenWriter.Load("map.txt");
+            screenWriter.Load("map.txt");//loads map from txt file
 
+            //sets console window settings
             ConsoleFont.SetFontSize(fontSize);
             Console.SetWindowSize(ScreenWriter.mapData[0].Length+1, ScreenWriter.mapData.Length+1);
             ConsoleWindow.RemoveConsoleResize();
@@ -38,12 +39,10 @@ namespace Console_Space_Invaders
         public static void Update()
         {
             Console.CursorVisible = false;
-            Stopwatch stopWatch = Stopwatch.StartNew();
+            Stopwatch stopWatch = Stopwatch.StartNew();//starts deltatime calculation
 
             while (gameThread.IsAlive)
             {
-                Console.SetCursorPosition(0, 0);
-
                 if (screenWriter.entities.Count != 0)
                 {
                     screenWriter.entityUpdater();
@@ -52,7 +51,7 @@ namespace Console_Space_Invaders
                 screenWriter.countFPS();
                 screenWriter.GetDeltaTime(out deltatime, stopWatch);
 
-                Thread.Sleep(1);
+                //Thread.Sleep(1);
             }
         }
     }
