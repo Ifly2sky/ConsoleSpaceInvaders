@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
+﻿using System.Runtime.InteropServices;
 
 namespace Console_Space_Invaders
 {
@@ -25,7 +17,7 @@ namespace Console_Space_Invaders
     public class KeyHandler
     {
         [DllImport("user32.dll")]
-        static extern int GetAsyncKeyState(int key);
+        static extern int GetAsyncKeyState(int key); //using this instead of Console.Readkey to get multple inputs
 
         Thread keyHandlerThread;
         static List<FunctionKey> keyList = new List<FunctionKey>();
@@ -44,15 +36,6 @@ namespace Console_Space_Invaders
         {
             keyList.Add(new FunctionKey(key, function));
         }
-        /// <summary>
-        /// sets key to be listened to and the function called when the key is heard
-        /// </summary>
-        /// <param name="key"></param>
-        /// <param name="function"></param>
-        internal void ListenToKey(FunctionKey functionKey)
-        {
-            keyList.Add(functionKey);
-        }
 
         private void CheckKey()
         {
@@ -69,7 +52,7 @@ namespace Console_Space_Invaders
                         }
                     }
                 } catch (Exception) { }
-                Thread.Sleep(1);
+                Thread.Sleep(1);// keyhandler is too fast for the rest of the game so it has to be slowed
             }
         }
     }

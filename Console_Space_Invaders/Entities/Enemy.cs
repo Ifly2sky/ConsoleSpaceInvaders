@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Numerics;
+﻿using System.Numerics;
 using Console_Space_Invaders.Image;
 using ConsoleExtra;
 
@@ -10,11 +9,11 @@ namespace Console_Space_Invaders.Entities
         ScreenWriter screenWriter;
         EntityColor color;
 
+        public bool IsAlive = true;
+
         internal Enemy(Vector2 position, ScreenWriter screenWriter)
         {
-            id = 2;
             image = new Chunk("█▄▄    ▀▀");
-            health = 3;
             speed = 1;
             this.position = position;
 
@@ -22,9 +21,7 @@ namespace Console_Space_Invaders.Entities
         }
         internal Enemy(int x, int y, ScreenWriter screenWriter)
         {
-            id = 2;
             image = new Chunk("█▄▄    ▀▀");
-            health = 3;
             speed = 1;
             position = new Vector2(x, y);
 
@@ -32,9 +29,7 @@ namespace Console_Space_Invaders.Entities
         }
         internal Enemy(Vector2 position, EntityColor color, ScreenWriter screenWriter)
         {
-            id = 2;
             image = new Chunk("█▄▄    ▀▀");
-            health = 3;
             speed = 1;
             this.position = position;
             this.color = color;
@@ -43,9 +38,7 @@ namespace Console_Space_Invaders.Entities
         }
         internal Enemy(int x, int y, EntityColor color, ScreenWriter screenWriter)
         {
-            id = 2;
             image = new Chunk("█▄▄    ▀▀");
-            health = 3;
             speed = 1;
             position = new Vector2(x, y);
             this.color = color;
@@ -54,9 +47,9 @@ namespace Console_Space_Invaders.Entities
         }
 
 
-        public override void Update()
+        public override void Update() //checks for collision with projectiles
         {
-            for (int projectileNum = 0; projectileNum < ScreenWriter.player.projectiles.Count-1; projectileNum++)
+            for (int projectileNum = 0; projectileNum <= ScreenWriter.player.projectiles.Count - 1; projectileNum++)
             {
                 Projectile proj = ScreenWriter.player.projectiles[projectileNum];
 
@@ -66,12 +59,14 @@ namespace Console_Space_Invaders.Entities
                 double thisPosX = Math.Floor(position.X);
                 double thisPosY = Math.Floor(position.Y);
 
-                if (proj != null && thisPosX-1 <= projPosX && projPosX <= thisPosX+1 && thisPosY-1 <= projPosY && projPosY <= thisPosY + 1)
+                if (proj != null && thisPosX - 1 <= projPosX && projPosX <= thisPosX + 1 && thisPosY - 1 <= projPosY && projPosY <= thisPosY + 1)
                 {
                     this.Clear();
                     UnregisterEntity(screenWriter);
                     screenWriter.entityDrawer -= Draw;
                     screenWriter.entityUpdater -= Update;
+                    IsAlive = false;
+                    //ScreenWriter.enemyGroup.RemoveEnemy(this);
 
                     proj.Delete();
                     ScreenWriter.player.projectiles.Remove(proj);
@@ -81,9 +76,9 @@ namespace Console_Space_Invaders.Entities
 
         public override void Draw()
         {
-            ConsoleFont.SetForegroundColor(color.r, color.g, color.b);
+            ConsoleFont.SetForegroundColor(color.r, color.g, color.b);//sets font color to desired color. And drops fps by 8000
             base.Draw();
-            ConsoleFont.SetForegroundColor(255, 255, 255);
+            ConsoleFont.SetForegroundColor(255, 255, 255);//sets font color to desired color. And drops fps by 8000
         }
     }
 }

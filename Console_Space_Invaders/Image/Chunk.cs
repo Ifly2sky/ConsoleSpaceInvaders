@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Console_Space_Invaders.Image
+﻿namespace Console_Space_Invaders.Image
 {
-    public class Chunk
+    public class Chunk // games images are handled as chunks of characters
     {
         public List<Block> blocks = new();
 
