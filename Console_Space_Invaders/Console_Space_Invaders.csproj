@@ -9,10 +9,7 @@
 
   <ItemGroup>
     <Reference Include="ConsoleExtra">
-      <HintPath>bin\Debug\net6.0\ConsoleExtra.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore">
-      <HintPath>..\..\..\..\..\..\Downloads\PresentationCore.dll</HintPath>
+      <HintPath>..\..\..\..\Libraries\ConsoleExtra\ConsoleExtra\bin\Debug\net6.0\ConsoleExtra.dll</HintPath>
     </Reference>
   </ItemGroup>
 

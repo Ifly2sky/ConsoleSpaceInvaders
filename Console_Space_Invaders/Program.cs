@@ -8,15 +8,17 @@ namespace Console_Space_Invaders
 {
     internal class Program
     {
-        public static Thread gameThread = new Thread(new ThreadStart(Update));
-        static ScreenWriter screenWriter = new("");
+        public static Thread gameThread = new(new ThreadStart(Update));
+        static readonly ScreenWriter screenWriter = new("");
 
         static readonly short fontSize = 16;
         public static double deltatime;
 
-        static void Main(string[] args)
+        static void Main()
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
+            ConsoleFont.ColorEnabled = true;
+
             OnLoad();
             gameThread.Start();
         }
@@ -45,7 +47,7 @@ namespace Console_Space_Invaders
             {
                 Console.SetCursorPosition(0,0);
 
-                if (screenWriter.entities.Count != 0)
+                if (screenWriter.entities.Count != 0 && screenWriter.entityUpdater != null && screenWriter.entityDrawer != null)
                 {
                     screenWriter.entityUpdater();
                     screenWriter.entityDrawer();

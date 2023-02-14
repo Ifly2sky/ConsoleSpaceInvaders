@@ -50,3 +50,21 @@ C:\Users\gr275809\Source\Repos\ConsoleSpaceInvaders\Console_Space_Invaders\obj\D
 C:\Users\gr275809\Source\Repos\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.pdb
 C:\Users\gr275809\Source\Repos\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.genruntimeconfig.cache
 C:\Users\gr275809\Source\Repos\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\ref\Console_Space_Invaders.dll
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\Console_Space_Invaders.exe
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\Console_Space_Invaders.deps.json
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\Console_Space_Invaders.runtimeconfig.json
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\Console_Space_Invaders.dll
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\Console_Space_Invaders.pdb
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\ConsoleExtra.dll
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.csproj.AssemblyReference.cache
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.GeneratedMSBuildEditorConfig.editorconfig
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.AssemblyInfoInputs.cache
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.AssemblyInfo.cs
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.csproj.CoreCompileInputs.cache
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.csproj.CopyComplete
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.dll
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\refint\Console_Space_Invaders.dll
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.pdb
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\Console_Space_Invaders.genruntimeconfig.cache
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\obj\Debug\net6.0-windows\ref\Console_Space_Invaders.dll
+D:\visual studio projects\kouluprojektit\ConsoleSpaceInvaders\ConsoleSpaceInvaders\Console_Space_Invaders\bin\Debug\net6.0-windows\ConsoleExtra.pdb
