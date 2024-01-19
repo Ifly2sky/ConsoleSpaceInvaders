@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gr275809\\Source\\Repos\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj": {}
+    "D:\\visual studio projects\\kouluprojektit\\ConsoleSpaceInvaders\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gr275809\\Source\\Repos\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj": {
+    "D:\\visual studio projects\\kouluprojektit\\ConsoleSpaceInvaders\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gr275809\\Source\\Repos\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
+        "projectUniqueName": "D:\\visual studio projects\\kouluprojektit\\ConsoleSpaceInvaders\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
         "projectName": "Console_Space_Invaders",
-        "projectPath": "C:\\Users\\gr275809\\Source\\Repos\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
-        "packagesPath": "C:\\Users\\gr275809\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gr275809\\Source\\Repos\\ConsoleSpaceInvaders\\Console_Space_Invaders\\obj\\",
+        "projectPath": "D:\\visual studio projects\\kouluprojektit\\ConsoleSpaceInvaders\\ConsoleSpaceInvaders\\Console_Space_Invaders\\Console_Space_Invaders.csproj",
+        "packagesPath": "C:\\Users\\Z220\\.nuget\\packages\\",
+        "outputPath": "D:\\visual studio projects\\kouluprojektit\\ConsoleSpaceInvaders\\ConsoleSpaceInvaders\\Console_Space_Invaders\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\gr275809\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Z220\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
